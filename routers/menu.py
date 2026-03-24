@@ -78,33 +78,18 @@ async def handler_add_to_basket(callback: CallbackQuery):
     add_to_basket(callback.from_user.id, s_id, count)
     await callback.answer("Savatchaga qo'shildi! ✅", show_alert=True)
 
-# @router.callback_query(F.data.startswith("add_"))
-# async def add_to_basket(callback: CallbackQuery):
-#     try:
-#         _, s_id_str, user_id_str, count_str = callback.data.split("_")
-#         sushi_id = int(s_id_str)
-#         user_id = int(user_id_str)
-#         count = int(count_str)
-#     except:
-#         await callback.answer("Xato: noto'g'ri ma'lumot", show_alert=True)
-#         return
-
-#     add_to_basket(user_id, sushi_id, count)
-#     await callback.answer("Savatchaga qo'shildi! ✅", show_alert=True)
-
 
 @router.callback_query(F.data == "back_cats")
 async def back_to_categories(callback: CallbackQuery):
     text = "Kategoriyani tanlang:"
     markup = categories_keyboard(user_id=callback.from_user.id)
 
-    # Eski xabarni o‘chirishga harakat qilamiz (photo bo‘lsa ham)
+
     try:
         await callback.message.delete()
     except TelegramBadRequest:
-        pass  # agar o‘chirib bo‘lmasa (masalan, botda huquq yo‘q yoki xabar allaqachon o‘chirilgan)
+        pass 
 
-    # Yangi xabar yuboramiz
     await callback.message.answer(
         text,
         reply_markup=markup

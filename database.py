@@ -46,7 +46,7 @@ def get_user_lang(user_id: int) -> str:
         cur = conn.cursor()
         cur.execute("SELECT language FROM users WHERE user_id = ?", (user_id,))
         row = cur.fetchone()
-        return row[0] if row else None  # None qaytarsa — yangi foydalanuvchi
+        return row[0] if row else None 
 
 def set_user_lang(user_id: int, lang: str):
     with get_connection() as conn:
@@ -79,7 +79,6 @@ def add_to_basket(user_id: int, sushi_id: int, miqdor: int = 1):
     with get_connection() as conn:
         cur = conn.cursor()
         
-        # Bir xil mahsulot bor-yo'qligini tekshirib, yangilash yoki qo'shish
         cur.execute("""
             SELECT miqdor FROM basket 
             WHERE user_id = ? AND sushi_id = ?

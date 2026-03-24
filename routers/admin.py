@@ -86,10 +86,8 @@ async def process_photo(message: Message, state: FSMContext):
     data = await state.get_data()
     
     if message.photo:
-        # Telegramdan olingan rasm — file_id orqali saqlaymiz
         photo_url = message.photo[-1].file_id
     else:
-        # URL deb yozgan bo‘lsa
         photo_url = message.text.strip()
         if not photo_url.startswith("http"):
             await message.answer("URL noto‘g‘ri ko‘rinadi. Rasm yuboring yoki to‘g‘ri URL kiriting.")

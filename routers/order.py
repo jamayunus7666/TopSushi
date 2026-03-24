@@ -5,7 +5,7 @@ from states import OrderProcess
 from database import get_basket_items, clear_basket, get_user_lang
 from keyboards.reply import contact_keyboard, location_keyboard, main_keyboard, get_text
 from keyboards.inline import admin_order_control
-from config import ADMIN_ID  # bot ni import qilish kerak bo'ladi
+from config import ADMIN_ID  
 
 router = Router(name="order")
 

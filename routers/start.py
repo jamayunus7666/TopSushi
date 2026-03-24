@@ -8,7 +8,7 @@ router = Router(name="start")
 
 @router.message(CommandStart())
 async def cmd_start(message: Message):
-    init_db()  # har safar emas, lekin hozircha shu tarzda
+    init_db()  
     user_id = message.from_user.id
     lang = get_user_lang(user_id)
     await message.answer(

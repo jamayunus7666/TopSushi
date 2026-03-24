@@ -1,7 +1,7 @@
 from aiogram.types import InlineKeyboardMarkup
 from aiogram.utils.keyboard import InlineKeyboardBuilder, ReplyKeyboardBuilder
 from database import get_user_lang,get_categories
-from keyboards.reply import get_text  # reply.py dan t funksiyasini import qilamiz
+from keyboards.reply import get_text  
 from config import ADMIN_ID 
 
 
@@ -42,12 +42,10 @@ def basket_actions_keyboard(user_id: int):
  
 
 def admin_order_control(user_id: int, current_admin_id: int):
-    """
-    Tugmalar faqat current_admin_id == ADMIN_ID bo'lsa ko'rinadi
-    """
+
     builder = InlineKeyboardBuilder()
     
-    # Faqat admin uchun tugmalar
+
     if current_admin_id == ADMIN_ID:
         builder.button(
             text="🚀 Yo'lga chiqdi",

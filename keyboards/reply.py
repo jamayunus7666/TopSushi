@@ -14,13 +14,11 @@ TEXTS = {
             'name_prompt': "🧖‍♂️Ismingizni kiriting:",
             'send_phone': "📞 Telefon yuborish",
             'send_location': "📍 Lokatsiya yuboring yoki manzilni yozing:",
-            # ... oldingi kalitlar ...
             'back': "⬅️ Orqaga",
             'add_to_cart': "🛒 Savatga qo'shish",
             'pay_card': "💳 Karta orqali",
             'pay_cash': "💵 Naqd pul",
             'clear': "❌ Tozalash",
-            # admin tugmalari
             'on_way': "🚀 Yo'lga chiqdi",
             'completed': "✅ Yakunlandi",
     },
@@ -36,7 +34,6 @@ TEXTS = {
             'name_prompt': "🧖‍♂️Введите ваше имя:",
             'send_phone': "📞 Отправить номер",
             'send_location': "📍 Отправьте локацию или напишите адрес:",
-            # ... oldingi kalitlar ...
             'back': "⬅️ Назад",
             'add_to_cart': "🛒 Добавить в корзину",
             'pay_card': "💳 Картой",
@@ -58,7 +55,6 @@ def main_keyboard(user_id: int):
     b.button(text=t('menu'))
     b.button(text=t('my_orders'))
     
-    # Faqat admin uchun ko‘rinadi
     from config import ADMIN_ID
     if user_id == ADMIN_ID:
         b.button(text="🛠 Admin panel")
